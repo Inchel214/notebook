@@ -1,0 +1,47 @@
+
+#导入包
+import matplotlib.pyplot as plt
+import numpy as np
+
+#创建数据
+x = np.linspace(-5, 5, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+#创建figure窗口
+plt.figure(num=3, figsize=(8, 5))
+#画曲线1
+plt.plot(x, y1)
+#画曲线2
+plt.plot(x, y2, color='blue', linewidth=5.0, linestyle='--')
+#设置坐标轴范围
+plt.xlim((-5, 5))
+plt.ylim((-2, 2))
+#设置坐标轴名称
+plt.xlabel('xxxxxxxxxxx')
+plt.ylabel('yyyyyyyyyyy')
+#设置坐标轴刻度
+my_x_ticks = np.arange(-5, 5, 0.5)
+my_y_ticks = np.arange(-2, 2, 0.3)
+plt.xticks(my_x_ticks)
+plt.yticks(my_y_ticks)
+
+#显示出所有设置
+plt.show()
+
+
+#matplotlib去掉边框
+#! usr/bin/python
+#coding=utf-8 
+import numpy as np
+import matplotlib.pyplot as plt 
+data=np.random.rand(10,10)
+fig, ax=plt.subplots()
+data[data==-1]=np.nan#去掉缺省值-1
+im =ax.imshow(data,interpolation='none',cmap='Reds_r',vmin=0.6,vmax=.9)#不插值
+#去掉边框
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['bottom'].set_visible(False)
+ax.spines['left'].set_visible(False)
+plt.show()
